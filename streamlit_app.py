@@ -1,3 +1,7 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import streamlit as st
 from openai import AzureOpenAI
 import pandas as pd
@@ -68,6 +72,7 @@ def format_response_prompt(role, data):
     You are an assistant that tells why the given {role} are relevant to meet at CPHI based on the information provided by the user.
     Give the list of {role} in bullet points with details of the company information.
     Below are the names of relevant {role} at the event: {format_data(data)}.
+    If there are no {role} in the list, just give a generic response, DO NOT MAKE ANY NAMES UP.
     """
 
 type_system_prompt = lambda data: format_prompt("category of companies", "types of exhibitor companies", data, '["Pharmaceutical Manufacturing", "Pharmaceutical Machinery"]')
