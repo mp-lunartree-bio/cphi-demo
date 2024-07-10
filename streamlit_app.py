@@ -5,8 +5,8 @@ import json
 from langchain_huggingface import HuggingFaceEmbeddings
 from json_agent import get_or_create_db, get_retriever, get_similarity_search, get_prompt_template
 
-openai_api_key = "0e54ece989454fb7bce8b01f864c6085"
-openai_ep = "https://lunartree-gpt-35-turbo-2.openai.azure.com/"
+openai_api_key = st.secrets["AZURE_OPENAI_API_KEY"]
+openai_ep = st.secrets["AZURE_OPENAI_ENDPOINT"]
 openai_ver = "2024-02-01"
 
 if not openai_api_key:
