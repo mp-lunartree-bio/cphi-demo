@@ -164,8 +164,7 @@ def handle_company_details_prompt():
         context_overview = get_similarity_search(question, db_overview)
         context_people = get_similarity_search(question, db_people)
         
-        template = get_prompt_template(user_messages, context_overview, context_people)
-        print(template)
+        template = get_prompt_template(st.session_state.messages[-5:], context_overview, context_people)
         
         response = client.chat.completions.create(
             model='lunartree-gpt-35-turbo-2',
