@@ -1,5 +1,5 @@
 import streamlit as st
-from openai import OpenAI, AzureOpenAI
+from openai import AzureOpenAI
 import pandas as pd
 import json
 from langchain_huggingface import HuggingFaceEmbeddings
